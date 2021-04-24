@@ -346,8 +346,8 @@ def query_video(inline_query):
     if check('users', user_id):
         data, img = send_data(text=text, message=None, inline_mode=True)
         if img:
-            r = types.InlineQueryResultArticle('1', text, types.InputTextMessageContent(f"{url.format(text)}\n\nSerial Number: {text}\n{data}"),
-                                                description="اضفط هنا لعرض  المعلومات",thumb_height=20, thumb_width=20,thumb_url=img_url.format(text))
+            r = types.InlineQueryResultArticle('1', text, types.InputTextMessageContent(f"Serial Number: {text}\n\n{data}"),
+                                                description="اضفط هنا لعرض المعلومات",thumb_height=20, thumb_width=20,thumb_url=img_url.format(text))
             bot.answer_inline_query(inline_query.id, [r])
         else:
             if len(text) == 0:
